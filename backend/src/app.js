@@ -21,7 +21,7 @@ app.post("/test", (req, res) => {
     success: true,
     body: req.body
   });
-});0
+});
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

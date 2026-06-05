@@ -1,4 +1,5 @@
 const express = require("express");
+const agents = require("../data/agents");
 
 const router = express.Router();
 
@@ -18,3 +19,6 @@ router.post(
 );
 
 module.exports = router;
+router.get("/agents", (req, res) => {
+  res.json(agents);
+});

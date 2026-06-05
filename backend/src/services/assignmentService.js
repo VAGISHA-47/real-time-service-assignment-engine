@@ -100,7 +100,8 @@ function simulateAssignment(request) {
 
   if (eligibleAgents.length === 0) {
     return {
-      message: "No eligible agent found",
+      message: "No available agent satisfies skill, schedule and capacity requirements.",
+
       rejectedAgents
     };
   }
@@ -135,6 +136,9 @@ function simulateAssignment(request) {
   });
 
   const selectedAgent = eligibleAgents[0];
+  // save assignment to agent
+  const agentInData = agents.find((a) => a.name === selectedAgent.name);
+  agentInData.assignments.push({ start: startTime, end: endTime });
 
   return {
     selectedAgent: selectedAgent.name,
